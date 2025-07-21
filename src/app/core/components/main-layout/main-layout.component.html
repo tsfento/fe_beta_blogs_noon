@@ -2,6 +2,11 @@
   <div class="sidebar">
     <nav>
       <a routerLink='/' routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}"> Home</a>
+      @if (authService.isLoggedIn()) {
+        <a (click)="logout()">Logout</a>
+      } @else {
+        <a routerLink="/login">Login</a>
+      }
     </nav>
   </div>
   <div class="content">
