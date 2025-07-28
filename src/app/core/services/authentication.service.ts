@@ -12,6 +12,10 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
+  signup(data: any) {
+    return this.http.post(`${environment.apiUrl}/users`, data);
+  }
+
   login(username: string, password: string): Observable<{ token: string }> {
     return this.http.post<{ token: string }>(`${environment.apiUrl}/login`, {
       username,

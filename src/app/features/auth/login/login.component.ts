@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: '../shared.styles.scss'
 })
 export class LoginComponent {
   loginForm: FormGroup = new FormGroup({
@@ -19,7 +19,7 @@ export class LoginComponent {
 
   login() {
     if (this.loginForm.valid) {
-      this.authService.login(this.loginForm.value.username, this.loginForm.value. password).subscribe({
+      this.authService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe({
         next: (res: { token: string }) => {
           console.log('Logged in with token: ', res.token);
           this.authService.setToken(res.token);
